@@ -10,7 +10,14 @@ document.getElementById("display")?.appendChild(app.view);
 
 app.loader.add("images/cat.png").load(setup);
 
+let cat: PIXI.Sprite;
+
 function setup() {
-    let sprite = new PIXI.Sprite(app.loader.resources["images/cat.png"].texture);
-    app.stage.addChild(sprite);
+    cat = new PIXI.Sprite(app.loader.resources["images/cat.png"].texture);
+    app.stage.addChild(cat);
+    app.ticker.add(delta => gameLoop(delta));
+}
+
+function gameLoop(delta: number) {
+    cat.x += 1;
 }
