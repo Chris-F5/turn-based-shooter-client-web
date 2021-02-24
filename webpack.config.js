@@ -27,8 +27,10 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin([
-            path.resolve(__dirname, "src/html")
-        ]),
+            { from: "src/html", to: "" },
+            { from: "src/images", to: "images" },
+        ],
+        ),
 
         new WasmPackPlugin({
             crateDirectory: path.resolve(__dirname, "wasm"),
