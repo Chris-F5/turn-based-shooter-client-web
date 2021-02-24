@@ -6,7 +6,7 @@ const dist = path.resolve(__dirname, "dist");
 
 module.exports = {
     mode: "development",
-    entry: "./js/bootstrap.ts",
+    entry: "./src/bootstrap.ts",
     output: {
         path: dist,
         filename: "bundle.js"
@@ -27,11 +27,11 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin([
-            path.resolve(__dirname, "static")
+            path.resolve(__dirname, "src/html")
         ]),
 
         new WasmPackPlugin({
-            crateDirectory: __dirname,
+            crateDirectory: path.resolve(__dirname, "wasm"),
         }),
     ],
 };
